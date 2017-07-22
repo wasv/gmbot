@@ -1,0 +1,28 @@
+#+TITLE: irc-rpg-bot Plan
+#+AUTHOR: William Stevens
+#+EMAIL: contact@wastevensv.com
+
+* Using Twisted framework.
+* Planned Commands
+** Phase A
+- Dice Rolls (/rpg roll 3d6+2)
+** Phase B
+- Stat checks (/rpg statcheck wasv int)
+- Stat editing (/rpg statset wasv int 10)
+- Stat modifiers (/rpg statmod wasv int +2) 
+** Phase C
+- Viewing tabletop grid (/rpg look)
+- Ranged attack tests (/rpg distance wasv enemy)
+* Design considerations
+- Should not be closely tied to IRC. Mostly protocol independent.
+- Commands can take arguments, affect current state, and return a
+  string to send.
+* How to store state?
+JSON file with per-user key value store.
+#+BEGIN_SRC 
+  [
+    { '_global' : [{'key':'value'}...]},
+    { 'user' : [{'key':'value'},...]},
+    { 'user2' : [...]}
+  ]
+#+END_SRC
