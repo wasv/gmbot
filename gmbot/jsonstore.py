@@ -1,6 +1,6 @@
 import json
 
-class UserStore(object):
+class JsonStore(object):
     fname = "store.json"
     data = {
         "defaultchan":
