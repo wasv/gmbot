@@ -1,17 +1,8 @@
 import json
 
 class JsonStore(object):
-    fname = "store.json"
-    data = {
-        "defaultchan":
-        {
-            "username":{"key":42}
-        },
-        "otherchan":
-        {
-            "username":{"key":"value"}
-        }
-    }
+    fname = "store.json" # default filename
+    data = {} # The in-memory dictionary.
 
     def __init__(self, fname=None):
         if fname:
@@ -39,5 +30,9 @@ class JsonStore(object):
         return self.data[chan][user][key]
 
     def set(self, chan, user, key, value):
+        if not chan in self.data:
+            self.data[chan] = {}
+        if not user in self.data[chan]:
+            self.data[chan][user] = {}
         self.data[chan][user][key] = value
         self._save()
