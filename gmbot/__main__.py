@@ -1,3 +1,4 @@
+from __future__ import print_function
 from gmbot import Dispatcher
 import fileinput
 
@@ -6,8 +7,15 @@ try:
 except NameError:
     pass
 
-d = Dispatcher()
+d = Dispatcher() # Create dispatcher.
 
 while True:
-    line = input()
-    print(d.dispatch('cli','cli',line))
+    try:
+        line = input('> ') # Read command
+    except KeyboardInterrupt:
+        print() # Add a newline and exit.
+        break
+    except EOFError:
+        print() # Add a newline and exit.
+        break
+    print(d.dispatch('cli','cli',line)) # Dispatch and print command.
