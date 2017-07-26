@@ -12,7 +12,7 @@ class JsonStore(object):
     def _load(self):
         try:
             with open(self.fname, 'r') as f:
-                json.load(f)
+                self.data = json.load(f)
         except:
             self._save()
     
