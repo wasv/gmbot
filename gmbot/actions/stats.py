@@ -25,7 +25,8 @@ class StatCheck(Action):
             return "Unknown stat"
 
     def help(self):
-        return "Gets the value of a players stat"
+        return """Gets the value of a players stat.
+    Usage: [user] [stat] or just [stat] if checking your own stats."""
 
 class StatSet(Action):
     def run(self, context, state, args):
@@ -43,7 +44,8 @@ class StatSet(Action):
         return "%s has %s for %s" % (user, result, stat)
 
     def help(self):
-        return "Gets the value of a players stat"
+        return """Sets the value of a players stat
+    Usage: [user] [stat] [value] ([user] can be ommitted if changing your own stats)"""
 
 class StatMod(Action):
     def run(self, context, state, args):
@@ -66,3 +68,7 @@ class StatMod(Action):
             result = mod
         state.set(chan,user,stat,result)
         return "%s has %s for %s" % (user, str(result), stat)
+
+    def help(self):
+        return """Adds or subtracts from the value of a players stat
+    Usage: [user] [stat] [+-n] ([user] can be ommitted if changing your own stats)"""

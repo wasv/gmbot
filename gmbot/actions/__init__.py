@@ -1,5 +1,3 @@
-from ..jsonstore import JsonStore
-
 class Action(object):
     def __init__(self):
         pass
@@ -9,7 +7,7 @@ class Action(object):
 
         Args:
             context(dict): contains the room and user where the command was called.
-            state(GameState): a reference to the object store
+            state(JsonStore): a reference to the object store
             args(list<String>): any arguments passed to action
         """
         pass
