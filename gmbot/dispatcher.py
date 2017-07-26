@@ -1,5 +1,5 @@
 from gmbot.actions.roll import Roll
-from gmbot.actions.stats import StatCheck
+from gmbot.actions.stats import *
 from gmbot.jsonstore import JsonStore
 
 class Dispatcher(object):
@@ -7,6 +7,10 @@ class Dispatcher(object):
     action_map = { # Mapping of command words to actions.
         "roll": Roll,
         "stat": StatCheck,
+        "statget": StatCheck,
+        "statcheck":StatCheck,
+        "statset": StatSet,
+        "statmod": StatMod,
         }
 
     def dispatch(self, chan, user, message):
