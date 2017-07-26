@@ -7,11 +7,11 @@ class Dispatcher(object):
         "roll": Roll
         }
 
-    def dispatch(self, room, user, message):
+    def dispatch(self, chan, user, message):
         """Parses and matches a message to a command.
 
         Args:
-            room(String): The room that the message was sent in.
+            chan(String): The chan that the message was sent in.
             user(String): The user that sent the message.
             message(String: The message that was sent.
         Returns: (String) Result of command.
@@ -28,7 +28,7 @@ class Dispatcher(object):
                 return "No help for that action."
         elif args[0] in self.action_map: # Test if command exists in map
             action = args[0]
-            context = {'user':user,'room':room}
+            context = {'user':user,'chan':chan}
             return self.action_map[action]().run(context, self.state, args[1:])
         else:
             return "No such action."
