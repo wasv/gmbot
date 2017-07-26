@@ -10,7 +10,10 @@
 - Stat checks (/rpg statcheck wasv int)
 - Stat editing (/rpg statset wasv int 10)
 - Stat modifiers (/rpg statmod wasv int +2) 
+** Phase B.5 Add IRC frontend.
 ** Phase C
+- Positioning characters on grid (/rpg place enemy E10)
+- Moving characters on grid (/rpg move wasv C8)
 - Viewing tabletop grid (/rpg look)
 - Ranged attack tests (/rpg distance wasv enemy)
 * Design considerations
