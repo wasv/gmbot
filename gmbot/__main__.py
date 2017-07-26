@@ -1,5 +1,5 @@
 from __future__ import print_function
-from gmbot import Dispatcher
+from gmbot.dispatcher import Dispatcher
 import fileinput
 
 try:
