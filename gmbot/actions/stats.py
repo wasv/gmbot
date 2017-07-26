@@ -48,7 +48,7 @@ class StatSet(Action):
 class StatMod(Action):
     def run(self, context, state, args):
         chan = context['chan']
-        if len(args) > 1:
+        if len(args) > 2:
             user = args[0]
             stat = args[1]
             mod = args[2]
@@ -59,7 +59,7 @@ class StatMod(Action):
 
         try:
             result = int(state.get(chan,user,stat))
-            result += mod
+            result += int(mod)
         except ValueError:
             return "Bad modifier value."
         except KeyError:
