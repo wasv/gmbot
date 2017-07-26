@@ -16,6 +16,10 @@
 - Moving characters on grid (/rpg move wasv C8)
 - Viewing tabletop grid (/rpg look)
 - Ranged attack tests (/rpg distance wasv enemy)
+** Plan C.5 Improved rolling
+- Multiple rolls in 1 command.
+- Multipliers.
+- Comparisons
 * Design considerations
 - Should not be closely tied to IRC. Mostly protocol independent.
 - Commands can take arguments, affect current state, and return a
