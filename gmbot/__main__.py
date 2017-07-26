@@ -1,6 +1,7 @@
 from __future__ import print_function
 from gmbot.dispatcher import Dispatcher
 import fileinput
+import readline
 
 try:
     input = raw_input
