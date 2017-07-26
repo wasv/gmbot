@@ -1,10 +1,12 @@
 from gmbot.actions.roll import Roll
+from gmbot.actions.stats import StatCheck
 from gmbot.jsonstore import JsonStore
 
 class Dispatcher(object):
     state = JsonStore() # Create persistent data store
     action_map = { # Mapping of command words to actions.
-        "roll": Roll
+        "roll": Roll,
+        "stat": StatCheck,
         }
 
     def dispatch(self, chan, user, message):
@@ -18,7 +20,7 @@ class Dispatcher(object):
         """
         args = message.split(' ')
         if args[0] == "help": # Check for help keyword.
-            if len(args) > 2:
+            if len(args) > 1:
                 action = args[1]
             else:
                 return "Commands:"+str([k for k in self.action_map.keys()])
