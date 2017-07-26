@@ -31,6 +31,9 @@ class Dispatcher(object):
         elif args[0] in self.action_map: # Test if command exists in map
             action = args[0]
             context = {'user':user,'chan':chan}
-            return self.action_map[action]().run(context, self.state, args[1:])
+            try:
+                return self.action_map[action]().run(context, self.state, args[1:])
+            except Exception as e:
+                return repr(e)
         else:
             return "No such action."
