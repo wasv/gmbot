@@ -1,5 +1,6 @@
+from . import Action
 inv_stat = 'items'
-class Inventory(object):
+class Inventory(Action):
     def run(self, context, state, args):
         chan = context['chan']
         if len(args) > 0:
@@ -24,7 +25,7 @@ class Inventory(object):
         return """Lists a players inventory.
     Usage: [user] (can be ommitted to check your inventory)"""
 
-class InventoryAdd(object):
+class InventoryAdd(Action):
     def run(self, context, state, args):
         chan = context['chan']
         if len(args) > 1:
@@ -52,7 +53,7 @@ class InventoryAdd(object):
         return """Adds an item to a players inventory.
     Usage: [user] [item] ([user] can be ommitted to check your inventory)"""
 
-class InventoryRemove(object):
+class InventoryRemove(Action):
     def run(self, context, state, args):
         chan = context['chan']
         if len(args) > 1:
