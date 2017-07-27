@@ -4,22 +4,27 @@
 
 * Using Twisted framework.
 * Planned Commands
-** Phase A
+** DONE Phase A Basic rolling
+   CLOSED: [2017-07-22]
 - Dice Rolls (/rpg roll 3d6+2)
-** Phase B
+** DONE Phase B Stats
+   CLOSED: [2017-07-25]
 - Stat checks (/rpg statcheck wasv int)
 - Stat editing (/rpg statset wasv int 10)
 - Stat modifiers (/rpg statmod wasv int +2) 
-** Phase B.5 Add IRC frontend.
-** Phase C
+** DONE Phase B.5 Add IRC frontend.
+   CLOSED: [2017-07-26]
+** DONE Phase C Inventory
+   CLOSED: [2017-07-26]
+** TODO Phase D Improved rolling
+- Multiple rolls in 1 command.
+- Multipliers.
+- Comparisons
+** TODO Phase E Map Grid
 - Positioning characters on grid (/rpg place enemy E10)
 - Moving characters on grid (/rpg move wasv C8)
 - Viewing tabletop grid (/rpg look)
 - Ranged attack tests (/rpg distance wasv enemy)
-** Plan C.5 Improved rolling
-- Multiple rolls in 1 command.
-- Multipliers.
-- Comparisons
 * Design considerations
 - Should not be closely tied to IRC. Mostly protocol independent.
 - Commands can take arguments, affect current state, and return a
