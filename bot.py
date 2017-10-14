@@ -23,19 +23,19 @@ class MessageLogger:
 
 class GmBot(irc.IRCClient):
     """A role-playing-game IRC bot."""
-    
+
     nickname = "gmbot"
     dispatcher = Dispatcher()
-    
+
     def connectionMade(self):
         irc.IRCClient.connectionMade(self)
         self.logger = MessageLogger(sys.stderr)
-        self.logger.log("[connected at %s]" % 
+        self.logger.log("[connected at %s]" %
                         time.asctime(time.localtime(time.time())))
 
     def connectionLost(self, reason):
         irc.IRCClient.connectionLost(self, reason)
-        self.logger.log("[disconnected at %s]" % 
+        self.logger.log("[disconnected at %s]" %
                         time.asctime(time.localtime(time.time())))
         self.logger.close()
 
@@ -93,7 +93,7 @@ class GmBot(irc.IRCClient):
         self.logger.log("%s is now known as %s" % (old_nick, new_nick))
 
 class GmBotFactory(protocol.ClientFactory):
-    """A factory for LogBots.
+    """A factory for GmBots.
 
     A new protocol instance will be created each time we connect to the server.
     """
