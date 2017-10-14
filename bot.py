@@ -53,14 +53,7 @@ class GmBot(irc.IRCClient):
     def privmsg(self, user, channel, msg):
         """This will get called when the bot receives a message."""
         user = user.split('!', 1)[0]
-        
-        if msg.startswith("!" + self.nickname):
-            self.logger.log("%s <%s> %s" % (channel, user, msg))
-            in_msg = ' '.join(msg.split(' ')[1:])
-            msg = self.dispatcher.dispatch(channel, user, in_msg)
-            self.msg(channel, msg)
-            self.logger.log("%s <%s> %s" % (channel, self.nickname, msg))
-            
+
         # Check to see if they're sending me a private message
         if channel == self.nickname:
             self.logger.log("%s <%s> %s" % (channel, user, msg))
@@ -75,6 +68,14 @@ class GmBot(irc.IRCClient):
             self.msg(user, msg)
             self.logger.log("%s <%s> %s" % (channel, self.nickname, msg))
             return
+
+        # Check to see if the message is a command directed at me
+        if msg.startswith("!" + self.nickname):
+            self.logger.log("%s <%s> %s" % (channel, user, msg))
+            in_msg = ' '.join(msg.split(' ')[1:])
+            msg = self.dispatcher.dispatch(channel, user, in_msg)
+            self.msg(channel, msg)
+            self.logger.log("%s <%s> %s" % (channel, self.nickname, msg))
 
         # Otherwise check to see if it is a message directed at me
         if msg.startswith(self.nickname + ":"):
