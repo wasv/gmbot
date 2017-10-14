@@ -117,10 +117,10 @@ class GmBotFactory(protocol.ClientFactory):
 
 if __name__ == '__main__':
     # create factory protocol and application
-    f = GmBotFactory(sys.argv[1])
+    f = GmBotFactory(sys.argv[2])
 
     # connect factory to this host and port
-    reactor.connectTCP("irc.freenode.net", 6667, f)
+    reactor.connectTCP(sys.argv[1], 6667, f)
 
     # run bot
     reactor.run()

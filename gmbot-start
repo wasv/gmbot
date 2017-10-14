@@ -3,7 +3,7 @@ NAME=irc-rpg-bot
 BASE_DIR=`dirname $0`
 VENV_DIR=$BASE_DIR/env
 DAEMON=python
-DAEMON_OPTS="bot.py wasv-bottest"
+DAEMON_OPTS="bot.py localhost bottest"
 echo "Starting server" $NAME
 cd $BASE_DIR
 source env/bin/activate && $DAEMON $DAEMON_OPTS
