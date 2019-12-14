@@ -23,16 +23,25 @@ class JsonStore(object):
     def get(self, chan=None, user=None, key=None):
         if chan is None:
             return self.data
+        if chan not in self.data:
+            return {}
+
         if user is None:
             return self.data[chan]
+        if user not in self.data[chan]:
+            return {}
+
         if key is None:
             return self.data[chan][user]
+        if key not in self.data[chan][user]:
+            return {}
+
         return self.data[chan][user][key]
 
     def set(self, chan, user, key, value):
-        if not chan in self.data:
+        if chan not in self.data:
             self.data[chan] = {}
-        if not user in self.data[chan]:
+        if user not in self.data[chan]:
             self.data[chan][user] = {}
         self.data[chan][user][key] = value
         self._save()
