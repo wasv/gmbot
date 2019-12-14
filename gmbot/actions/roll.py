@@ -7,7 +7,7 @@ class Roll(Action):
     def run(self, context, state, args):
         if 'd' not in args[0]: # Checks for an invalid roll.
             return "Invalid roll %s, Syntax: ?d?+? where ? is a number." % (args[0])
-        parts = re.split('d|\+',args[0]) # Split on 'd' or '+' character.
+        parts = re.split(r'd|\+',args[0]) # Split on 'd' or '+' character.
         qty = int(parts[0])
         sides = int(parts[1])
         if len(parts) > 2: # Check for modifier on roll.
