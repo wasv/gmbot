@@ -1,4 +1,3 @@
-import pytest
 from .. import jsonstore
 
 def test_empty_get(tmpdir):
